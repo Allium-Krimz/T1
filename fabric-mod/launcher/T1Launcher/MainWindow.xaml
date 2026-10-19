@@ -1,0 +1,89 @@
+<Window x:Class="T1Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="T1 Client Launcher" Height="700" Width="800"
+        MinHeight="640" MinWidth="680"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}"
+        Foreground="{StaticResource TextBrush}">
+    <Grid Margin="22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,18">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Background="{StaticResource AccentBrush}" CornerRadius="3" />
+            <StackPanel Grid.Column="1" Margin="14,0,0,0">
+                <TextBlock Text="T1 CLIENT" FontSize="25" FontWeight="Bold" />
+                <TextBlock Text="GHOST-STYLE LAUNCHER  •  MINECRAFT JAVA" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="1,3,0,0" />
+            </StackPanel>
+            <Border Grid.Column="2" Background="#282037" BorderBrush="#4A3860" BorderThickness="1" CornerRadius="7" Padding="12,7" VerticalAlignment="Center">
+                <TextBlock Text="1.21.11  /  FABRIC" Foreground="{StaticResource AccentBrush}" FontSize="11" FontWeight="SemiBold" />
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="1" Background="{StaticResource PanelBrush}" BorderBrush="#282D3D" BorderThickness="1" CornerRadius="10" Padding="16" Margin="0,0,0,13">
+            <StackPanel>
+                <TextBlock Text="MINECRAFT DIRECTORY" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource MutedBrush}" Margin="0,0,0,8" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="MinecraftPathBox" Grid.Column="0" VerticalContentAlignment="Center" />
+                    <Button Grid.Column="1" Content="Browse" Click="BrowseMinecraft_Click" Margin="8,0,0,0" />
+                </Grid>
+                <TextBlock x:Name="MinecraftPathHint" Text="Default: %APPDATA%\.minecraft" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="1,7,0,0" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Background="{StaticResource PanelBrush}" BorderBrush="#282D3D" BorderThickness="1" CornerRadius="10" Padding="16" Margin="0,0,0,13">
+            <StackPanel>
+                <TextBlock Text="PROJECT DIRECTORY" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource MutedBrush}" Margin="0,0,0,8" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="ProjectPathBox" Grid.Column="0" VerticalContentAlignment="Center" />
+                    <Button Grid.Column="1" Content="Browse" Click="BrowseProject_Click" Margin="8,0,0,0" />
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <UniformGrid Grid.Row="3" Columns="4" Margin="0,0,0,14">
+            <Button Content="Build Mod" Click="BuildMod_Click" Background="#51356C" BorderBrush="#9165B2" Margin="0,0,7,0" />
+            <Button Content="Install JAR" Click="InstallJar_Click" Margin="0,0,7,0" />
+            <Button Content="Open Mods" Click="OpenMods_Click" Margin="0,0,7,0" />
+            <Button Content="Minecraft Launcher" Click="OpenLauncher_Click" />
+        </UniformGrid>
+
+        <Border Grid.Row="4" Background="#0E1118" BorderBrush="#282D3D" BorderThickness="1" CornerRadius="10" Padding="12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0" Margin="1,0,1,8">
+                    <TextBlock Text="OUTPUT" FontWeight="SemiBold" FontSize="11" Foreground="{StaticResource MutedBrush}" DockPanel.Dock="Left" />
+                    <TextBlock x:Name="StatusText" Text="Ready" Foreground="{StaticResource AccentBrush}" FontSize="11" DockPanel.Dock="Right" />
+                </DockPanel>
+                <TextBox x:Name="BuildLog" Grid.Row="1" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                         HorizontalScrollBarVisibility="Auto" AcceptsReturn="True" FontFamily="Consolas" FontSize="11"
+                         BorderThickness="0" Background="#0A0D13" Padding="10" />
+            </Grid>
+        </Border>
+
+        <TextBlock Grid.Row="5" Text="This launcher uses your existing official Minecraft installation and local Gradle project. It does not handle Microsoft credentials." Foreground="{StaticResource MutedBrush}" FontSize="10" Margin="3,12,3,0" TextWrapping="Wrap" />
+    </Grid>
+</Window>

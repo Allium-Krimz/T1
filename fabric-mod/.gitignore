@@ -1,0 +1,9 @@
+.gradle/
+build/
+run/
+.idea/
+.vscode/
+*.iml
+launcher/T1Launcher/bin/
+launcher/T1Launcher/obj/
+out-launcher/
